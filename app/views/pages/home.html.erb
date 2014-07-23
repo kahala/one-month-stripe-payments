@@ -19,6 +19,7 @@
             <script src="https://checkout.stripe.com/checkout.js"></script>
             <%= hidden_field_tag 'stripeToken' %>
             <%= hidden_field_tag 'stripeEmail' %>
+            <%= hidden_field_tag 'amount', 499 %>
             <button id='btn-buy' type='button' class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>I want this!</button>
 
             <script>
@@ -34,8 +35,8 @@
               document.getElementById('btn-buy').addEventListener('click', function(e) {
                 handler.open({
                   name: 'One Month',
-                  description: 'Growth Hacking Crash Course ($4.00)',
-                  amount: 499
+                  description: 'Growth Hacking Crash Course ($4.99)',
+                  amount: document.getElementById("amount").value
                 });
                 e.preventDefault();
               })
